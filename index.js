@@ -27,11 +27,11 @@ player.on('connectionError', (queue, error) => {
 });
 
 player.on('trackStart', (queue, track) => {
-  queue.metadata.send(`▶ | Started playing: **${track.title}** in **${queue.connection.channel.name}**!`);
+  queue.metadata.send(`▶ | Minchia senti questa: **${track.title}** in **${queue.connection.channel.name}**!`);
 });
 
 player.on('trackAdd', (queue, track) => {
-  queue.metadata.send(`🎶 | Track **${track.title}** queued!`);
+  queue.metadata.send(`🎶 **${track.title}**  ... e se ne aggiunge altra`);
 });
 
 player.on('botDisconnect', queue => {
@@ -39,11 +39,11 @@ player.on('botDisconnect', queue => {
 });
 
 player.on('channelEmpty', queue => {
-  queue.metadata.send('❌ | Nobody is in the voice channel, leaving...');
+  queue.metadata.send('❌ | Boh, un cazzo di nessuno, quitto...');
 });
 
 player.on('queueEnd', queue => {
-  queue.metadata.send('✅ | Queue finished!');
+  queue.metadata.send('✅ | Metti alte song ziopera!');
 });
 
 client.once('ready', async () => {

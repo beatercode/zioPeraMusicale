@@ -34,7 +34,7 @@ module.exports = {
     try {
       if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
         return void interaction.reply({
-          content: 'You are not in a voice channel!',
+          content: 'Si ma non sei nel mio voice channel, coglione!',
           ephemeral: true,
         });
       }
@@ -44,7 +44,7 @@ module.exports = {
         interaction.member.voice.channelId !== interaction.guild.me.voice.channelId
       ) {
         return void interaction.reply({
-          content: 'You are not in my voice channel!',
+          content: 'Si ma non sei nel mio voice channel coglione!',
           ephemeral: true,
         });
       }
@@ -53,7 +53,7 @@ module.exports = {
 
       const queue = player.getQueue(interaction.guildId);
       if (!queue || !queue.playing) {
-        return void interaction.followUp({content: '❌ | No music is being played!'});
+        return void interaction.followUp({content: '❌ | Neanche un cazzo di song!'});
       }
 
       const loopMode = interaction.options.get('mode').value;
@@ -61,7 +61,7 @@ module.exports = {
       const mode = loopMode === QueueRepeatMode.TRACK ? '🔂' : loopMode === QueueRepeatMode.QUEUE ? '🔁' : '▶';
 
       return void interaction.followUp({
-        content: success ? `${mode} | Updated loop mode!` : '❌ | Could not update loop mode!',
+        content: success ? `${mode} | Loop aggiornato!` : '❌ | Non worka il loop, rip!',
       });
     } catch (error) {
       console.log(error);

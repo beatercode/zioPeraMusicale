@@ -6,7 +6,7 @@ module.exports = {
   async execute(interaction, player) {
     if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
       return void interaction.reply({
-        content: 'You are not in a voice channel!',
+        content: 'Si ma non sei nel mio voice channel, coglione!',
         ephemeral: true,
       });
     }
@@ -16,14 +16,14 @@ module.exports = {
       interaction.member.voice.channelId !== interaction.guild.me.voice.channelId
     ) {
       return void interaction.reply({
-        content: 'You are not in my voice channel!',
+        content: 'Si ma non sei nel mio voice channel coglione!',
         ephemeral: true,
       });
     }
 
     await interaction.deferReply();
     const queue = player.getQueue(interaction.guildId);
-    if (!queue || !queue.playing) return void interaction.followUp({content: '❌ | No music is being played!'});
+    if (!queue || !queue.playing) return void interaction.followUp({content: '❌ | Neanche un cazzo di song!'});
     try {
       queue.shuffle();
       trimString = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
